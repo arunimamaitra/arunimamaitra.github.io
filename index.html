@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arunima Maitra</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-jQ9sYFmZr+fS6sPYzTQFvcd7xv3FqY7tTzqg9N8V1/xr+m8oEdMZrLPO+07J4Z4iT7u3r6Rz5bwlFGBB+clL0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <img src="images/profile.jpg" alt="Arunima Maitra">
+                <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/YOUR_LINKEDIN" target="_blank" title="LinkedIn"><i class="fab fa-linkedin fa-2x"></i></a>
+                    <a href="https://github.com/YOUR_GITHUB" target="_blank" title="GitHub"><i class="fab fa-github fa-2x"></i></a>
+                    <a href="https://scholar.google.com/citations?user=YOUR_GOOGLE_SCHOLAR_ID" target="_blank" title="Google Scholar"><i class="ai ai-google-scholar fa-2x"></i></a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Navigation -->
+            <nav class="top-nav">
+                <a href="#about">Home</a>
+                <a href="#publications">Publications</a>
+                <a href="#cv">Curriculum Vitae</a>
+            </nav>
+
+            <!-- About Me -->
+            <section id="about">
+                <h1>About Me</h1>
+                <p>Write a short bio about yourself here. Include research interests, education, or any info you want visitors to know.</p>
+            </section>
+
+            <!-- Publications -->
+          <!--
+            <section id="publications">
+                <h1>Publications</h1>
+                <!-- Example publication -->
+                <div class="publication">
+                    <p class="pub-title">
+                        <a href="https://arxiv.org/abs/2401.12345" target="_blank">
+                            Instruction Following without Instruction Tuning
+                        </a>
+                    </p>
+                    <p class="pub-authors">
+                        <a href="https://hewitt.github.io/" target="_blank">John Hewitt</a>, 
+                        <a href="https://www.nelsonliu.com/" target="_blank">Nelson F. Liu</a>, 
+                        <a href="https://nlp.stanford.edu/~manning/" target="_blank">Christopher D. Manning</a>, 
+                        <a href="https://percyliang.com/" target="_blank">Percy Liang</a>.
+                    </p>
+                    <p class="pub-venue">arXiv, 2024.</p>
+                    <p class="pub-links">
+                        <a href="#" target="_blank">[bib]</a> 
+                        <a href="#" target="_blank">[code]</a> 
+                        <a href="#" target="_blank">[abstract]</a>
+                    </p>
+                </div>
+            </section>
+          -->
+
+            <!-- CV -->
+            <section id="cv">
+                <h1>CV</h1>
+                <a href="cv/ArunimaMaitraCV.pdf" target="_blank" class="cv-link">Download PDF CV</a>
+            </section>
+
+            <!-- Footer -->
+            <footer>
+                <p>© 2025 Arunima Maitra</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Smooth Scroll Script -->
+    <script>
+        const links = document.querySelectorAll('.top-nav a');
+        for (const link of links) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth' });
+            });
+        }
+    </script>
+</body>
+</html>
