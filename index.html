@@ -1,308 +1,293 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Arunima Maitra — Personal Website</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arunima Maitra - Academic Website</title>
 
-  <!-- Basic styling, white + beige palette -->
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
-    :root{
-      --beige: #f3ebe0;      
-      --beige-2: #e7dfd3;    
-      --white: #ffffff;
-      --text: #2b2b2b;
-      --muted: #666;
-      --sidebar-w: 220px;
-      --max-width: 980px;
-      --accent: #cdbfae;
-      --gap: 18px;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fffdf9;
+      color: #333;
+      line-height: 1.6;
     }
 
-    /* Reset */
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      color:var(--text);
-      background: var(--white);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      scroll-behavior: smooth;
+    /* Layout */
+    .container {
+      display: flex;
+      min-height: 100vh;
     }
 
-    /* Left sidebar (fixed) */
-    .sidebar{
-      position: fixed;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: var(--sidebar-w);
-      background: linear-gradient(180deg, var(--beige) 0%, var(--beige-2) 100%);
-      padding: 32px 18px;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap: 18px;
-      border-right: 1px solid rgba(0,0,0,0.04);
+    .sidebar {
+      width: 260px;
+      background: #f5f0e8;
+      padding: 20px;
+      border-right: 1px solid #ddd;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    .photo{
-      width: 140px;
-      height: 140px;
-      border-radius: 999px;
-      overflow:hidden;
-      display:block;
-      flex: 0 0 auto;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-      background: linear-gradient(180deg, #fff 0%, #f9f9f9 100%);
-    }
-    .photo img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
+    .photo {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px; /* square with soft corners */
+      margin-bottom: 20px;
     }
 
-    .email{
-      margin-top:6px;
-      text-align:center;
-      font-size:0.95rem;
-      word-break:break-word;
-    }
-    .email a{
-      color:var(--text);
-      text-decoration:none;
-      font-weight:600;
-    }
-    .email a:hover{ text-decoration: underline; }
-
-    .social-icons{
-      display:flex;
-      gap:12px;
-      margin-top:6px;
-    }
-    .social-icons a{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      text-decoration:none;
-      border-radius:8px;
-      padding:6px;
-      transition: transform .12s ease, background .12s ease;
-    }
-    .social-icons a:focus{ outline: 2px solid #bbb; outline-offset:2px; }
-    .social-icons a:hover{ transform: translateY(-3px); background: rgba(0,0,0,0.02); }
-
-    /* Big icon size: change width/height here */
-    .social-icons svg{
-      width:36px;
-      height:36px;
-      display:block;
-      fill: var(--text);
-      flex-shrink:0;
+    .contact-links {
+      width: 100%;
     }
 
-    /* Main content (to the right of sidebar) */
-    .main{
-      margin-left: var(--sidebar-w);
-      min-height:100vh;
-      padding: 28px 36px;
-      max-width: calc(var(--max-width));
-      margin-right: auto;
+    .contact-links p {
+      margin: 12px 0;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
     }
 
-    /* Header: name left, nav right */
-    header.site-header{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      margin-bottom: 18px;
-      padding-top: 6px;
+    .contact-links i {
+      margin-right: 10px;
+      font-size: 1.3rem;
+      color: #444;
+      width: 24px;
+      text-align: center;
     }
-    .site-title{
-      font-size:1.35rem;
-      font-weight:800;
-      letter-spacing:-0.2px;
-    }
-    nav.top-nav{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      flex-wrap:wrap;
-    }
-    nav.top-nav a{
-      text-decoration:none;
-      padding:8px 12px;
-      border-radius:8px;
-      color:var(--text);
-      font-weight:600;
-      font-size:0.95rem;
-      border: 1px solid transparent;
-    }
-    nav.top-nav a:hover{
-      background: var(--accent);
-      border-color: rgba(0,0,0,0.05);
-    }
-    .btn-cv{
-      background:transparent;
-      border:2px solid var(--accent);
-      padding:8px 14px;
-      border-radius:8px;
-      font-weight:700;
-      cursor:pointer;
-    }
-    .btn-cv:hover{ transform: translateY(-2px); }
 
-    /* Sections */
-    section{
+    .contact-links a {
+      text-decoration: none;
+      color: #222;
+    }
+
+    .contact-links a:hover {
+      color: #6b4e3d;
+    }
+
+    .main {
+      flex: 1;
+      padding: 20px 40px;
+    }
+
+    /* Header + Navigation */
+    .site-header {
+      margin-bottom: 20px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 20px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+    }
+
+    .nav a:hover {
+      color: #6b4e3d;
+    }
+
+    .site-name {
+      margin-top: 12px;
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: #222;
+    }
+
+    /* Section Headings */
+    h2 {
+      font-size: 1.7rem;
       margin-top: 30px;
-      padding: 28px;
-      background: var(--white);
-      border-radius:12px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.03);
-    }
-    h2{
-      margin:0 0 12px 0;
-      font-size:1.25rem;
-    }
-    p.lead{ color:var(--muted); line-height:1.55; margin-top:8px }
-
-    /* Publications list (simple) */
-    .pub-list{ list-style:none; padding:0; margin:12px 0 0 0; }
-    .pub-list li{ margin-bottom:12px; font-size:0.98rem; }
-    .pub-meta{ color:var(--muted); font-size:0.9rem; }
-
-    /* Footer across full width */
-    footer.site-footer{
-      margin-left: var(--sidebar-w);
-      margin-top: 42px;
-      padding: 18px 36px;
-      background: linear-gradient(90deg, var(--beige) 0%, var(--beige-2) 100%);
-      color: var(--text);
-      border-top: 1px solid rgba(0,0,0,0.04);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:600;
+      color: #444;
     }
 
-    /* Responsive for small screens */
-    @media (max-width:760px){
-      .sidebar{
-        position:relative;
-        width:100%;
-        height:auto;
-        flex-direction:row;
-        justify-content:flex-start;
-        padding:12px;
-        gap:12px;
-        border-right:none;
-        border-bottom:1px solid rgba(0,0,0,0.04);
+    /* Publications */
+    .publication {
+      margin-bottom: 22px;
+    }
+    .publication-title {
+      font-weight: 600;
+      font-size: 1.05rem;
+    }
+    .authors {
+      margin: 4px 0;
+    }
+    .authors a {
+      text-decoration: none;
+      color: #333;
+    }
+    .authors a:hover {
+      color: #6b4e3d;
+    }
+    .venue {
+      font-style: italic;
+      margin: 4px 0;
+    }
+    .links a {
+      margin-right: 10px;
+      text-decoration: none;
+      color: #6b4e3d;
+      font-weight: 500;
+    }
+    .links a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    .site-footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #ddd;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 760px) {
+      .container {
+        flex-direction: column;
       }
-      .photo{ width:64px; height:64px; }
-      .social-icons svg{ width:28px; height:28px; }
-      .main{ margin-left:0; padding:18px; }
-      footer.site-footer{ margin-left:0; }
-      header.site-header{ flex-direction:column; align-items:flex-start; gap:10px; }
+      .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+      }
+      .photo {
+        width: 140px;
+        height: 140px;
+      }
+      .main {
+        padding: 20px;
+      }
+      .nav {
+        flex-wrap: wrap;
+        gap: 12px;
+      }
     }
-
-    /* small helpers */
-    .muted{ color:var(--muted); font-size:0.95rem; }
-    a.icon-link{ display:inline-flex; align-items:center; gap:8px; }
   </style>
 </head>
 <body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <img src="images/photo.jpg" alt="Profile photo" class="photo">
 
-  <!-- LEFT SIDEBAR: ONLY photo → email → icons -->
-  <aside class="sidebar" aria-label="Sidebar with photo and contact">
-    <!-- Replace images/photo.jpg with your real photo (square/cropped looks best) -->
-    <div class="photo" aria-hidden="false">
-      <img src="images/photo.png" alt="Photo of Arunima Maitra">
-    </div>
+      <div class="contact-links">
+        <p><i class="fas fa-envelope"></i> <a href="mailto:arunima.maitra@colorado.edu">Email</a></p>
+        <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank">LinkedIn</a></p>
+        <p><i class="fab fa-github"></i> <a href="https://github.com/arunimaitra" target="_blank">GitHub</a></p>
+        <p><i class="fas fa-graduation-cap"></i> <a href="https://scholar.google.com/citations?user=YOURID" target="_blank">Google Scholar</a></p>
+      </div>
+    </aside>
 
-    <div class="email">
-      <!-- Replace the mailto address as needed -->
-      <a href="mailto:arunima.maitra@colorado.edu">arunima.maitra@colorado.edu</a>
-    </div>
+    <!-- Main Content -->
+    <main class="main">
+      <header class="site-header">
+        <nav class="nav">
+          <a href="#about">About</a>
+          <a href="#publications">Publications</a>
+          <a href="#cv">CV</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <h1 class="site-name">Arunima Maitra</h1>
+      </header>
 
-    <div class="social-icons" role="navigation" aria-label="Social links">
-      <!-- GitHub -->
-      <a class="icon-link" href="https://github.com/arunimamaitra" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M12 .5C5.73.5.75 5.49.75 11.77c0 4.92 3.18 9.1 7.58 10.57.55.1.75-.24.75-.53 0-.26-.01-1.02-.02-2-3.08.67-3.73-1.48-3.73-1.48-.5-1.28-1.22-1.62-1.22-1.62-.99-.68.07-.67.07-.67 1.09.08 1.67 1.12 1.67 1.12.98 1.67 2.57 1.19 3.2.91.1-.71.38-1.19.69-1.46-2.46-.28-5.05-1.23-5.05-5.48 0-1.21.43-2.2 1.12-2.98-.11-.28-.49-1.41.11-2.93 0 0 .9-.29 2.95 1.12A10.2 10.2 0 0112 6.9c.91.01 1.83.12 2.69.36 2.05-1.41 2.95-1.12 2.95-1.12.6 1.52.22 2.65.11 2.93.7.78 1.12 1.77 1.12 2.98 0 4.26-2.59 5.2-5.06 5.48.39.34.74 1.01.74 2.04 0 1.48-.01 2.68-.01 3.05 0 .29.2.64.76.53C20.07 20.87 23.25 16.69 23.25 11.77 23.25 5.49 18.27.5 12 .5z"/>
-        </svg>
-      </a>
+      <!-- About -->
+      <section id="about">
+        <h2>About Me</h2>
+        <p>
+          I am a researcher in linguistics and natural language processing. 
+          My research focuses on how humans and language models learn, use, and sometimes 
+          fail with grammatical structures.
+        </p>
+      </section>
 
-      <!-- Google Scholar / Scholar icon: using mortarboard -->
-      <a class="icon-link" href="https://scholar.google.com/citations?user=qPpZm08AAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar profile">
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M12 2L1 7l11 5 9-4.09V17h2V7L12 2zM3 8.1v6.4c0 1.2.65 2.3 1.7 2.9L12 21l7.3-3.6c1.05-.5 1.7-1.7 1.7-2.9V8.1L12 12 3 8.1z"/>
-        </svg>
-      </a>
+      <!-- Publications -->
+      <section id="publications">
+        <h2>Publications</h2>
 
-      <!-- LinkedIn -->
-      <a class="icon-link" href="https://www.linkedin.com/in/arunima-maitra/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M20.45 20.45h-3.56v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.15 1.46-2.15 2.96v5.71H8.36V9h3.42v1.56h.05c.48-.9 1.65-1.85 3.4-1.85 3.63 0 4.3 2.39 4.3 5.5v6.69zM5.34 7.43a2.07 2.07 0 110-4.13 2.07 2.07 0 010 4.13zM6.01 20.45H4.68V9h1.33v11.45z"/>
-        </svg>
-      </a>
-    </div>
+        <div class="publication">
+          <div class="publication-title">
+            Lost in the Middle: How Language Models Use Long Contexts
+          </div>
+          <div class="authors">
+            <a href="#">Nelson F. Liu</a>, <a href="#">Kevin Lin</a>, <a href="#">John Hewitt</a>, 
+            <a href="#">Ashwin Paranjape</a>, <a href="#">Michele Bevilacqua</a>, 
+            <a href="#">Fabio Petroni</a>, and <a href="#">Percy Liang</a>.
+          </div>
+          <div class="venue">
+            In <a href="#">Transactions of the Association for Computational Linguistics (TACL)</a>, 2024.
+          </div>
+        </div>
 
-  </aside>
+        <div class="publication">
+          <div class="publication-title">
+            The World According to LLMs: How Geographic Origin Influences LLMs’ Entity Deduction Capabilities
+          </div>
+          <div class="authors">
+            <a href="#">Harsh Nishant Lalai</a>, <a href="#">Raj Sanjay Shah</a>, 
+            <a href="#">Jiaxin Pei</a>, <a href="#">Sashank Varma</a>, 
+            <a href="#">Yi-Chia Wang</a>, <a href="#">Ali Emami</a>, 
+            <strong>Arunima Maitra</strong>
+          </div>
+          <div class="venue">
+            <a href="#">COLM 2025</a>
+          </div>
+          <div class="links">
+            <a href="#">[Paper]</a>
+          </div>
+        </div>
 
-  <!-- MAIN content -->
-  <main class="main">
-    <header class="site-header" role="banner">
-      <div class="site-title">Arunima Maitra</div>
+        <div class="publication">
+          <div class="publication-title">
+            MDocAgent: A Multi-Modal Multi-Agent Framework for Document Understanding
+          </div>
+          <div class="authors">
+            <a href="#">Siwei Han</a>, <a href="#">Peng Xia</a>, <a href="#">Ruiyi Zhang</a>, 
+            <a href="#">Tong Sun</a>, <a href="#">Yun Li</a>, <a href="#">Hongtu Zhu</a>, 
+            <strong>Arunima Maitra</strong>, <a href="#">Huaxiu Yao</a>
+          </div>
+          <div class="venue">
+            <a href="#">arXiv 2503.13964</a>
+          </div>
+          <div class="links">
+            <a href="#">[arXiv]</a>
+            <a href="#">[Code]</a>
+          </div>
+        </div>
+      </section>
 
-      <nav class="top-nav" role="navigation" aria-label="Primary">
-        <a href="#about">About</a>
-        <a href="#publications">Publications</a>
-        <a class="btn-cv" href="assets/CV_Arunima_Maitra.pdf" target="_blank" rel="noopener noreferrer">Download PDF CV</a>
-      </nav>
-    </header>
+      <!-- CV -->
+      <section id="cv">
+        <h2>Curriculum Vitae</h2>
+        <p><a href="assets/CV_Arunima_Maitra.pdf" target="_blank">Download my CV (PDF)</a></p>
+      </section>
 
-    <!-- ABOUT -->
-    <section id="about" aria-labelledby="about-heading">
-      <h2 id="about-heading">About Me</h2>
-      <p class="lead">I am a linguist / researcher interested in [replace with your interests]. I work on language acquisition, computational linguistics, and grammatical analysis. Replace this paragraph with a concise 2–3 line bio that summarizes your current position, research interests, and anything you want visitors to know at first glance.</p>
+      <!-- Contact -->
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:arunima.maitra@colorado.edu">arunima.maitra@colorado.edu</a></p>
+        <p>Department of Linguistics<br>University of Colorado Boulder</p>
+      </section>
 
-      <p><strong>Contact:</strong> <a href="mailto:arunima.maitra@colorado.edu">arunima.maitra@colorado.edu</a></p>
+      <footer class="site-footer">
+        © 2025 Arunima Maitra
+      </footer>
+    </main>
+  </div>
 
-      <p><a class="btn-cv" href="assets/CV_Arunima_Maitra.pdf" target="_blank" rel="noopener noreferrer">Download PDF CV</a></p>
-    </section>
-
-    <!-- PUBLICATIONS -->
-    <section id="publications" aria-labelledby="pub-heading">
-      <h2 id="pub-heading">Publications</h2>
-      <p class="muted">Selected publications — replace with your entries</p>
-      <ul class="pub-list">
-        <li>
-          <strong>Title of paper one</strong><br>
-          <span class="pub-meta">Journal Name, Year · <a href="#">link</a></span>
-        </li>
-        <li>
-          <strong>Title of paper two</strong><br>
-          <span class="pub-meta">Conference Name, Year · <a href="#">link</a></span>
-        </li>
-        <!-- Add more list items or generate from a JSON later -->
-      </ul>
-    </section>
-
-    <!-- More content-->
-
-    <footer class="site-footer" role="contentinfo">
-      © 2025 Arunima Maitra
-    </footer>
-  </main>
-
-  <!-- Script to handle keyboard focus improvements-->
+  <!-- Script placeholder -->
   <script>
-    // Example: if you want to update active nav link on scroll in the future, you can add that here.
-    // This file intentionally stays minimal and dependency-free.
+    // Minimal script for accessibility or navigation improvements
   </script>
 </body>
 </html>
