@@ -76,32 +76,35 @@
 
     /* Header + Navigation */
     .site-header {
-      margin-bottom: 20px;
-    }
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* pushes name left, nav right */
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
 
-    .nav {
-      display: flex;
-      gap: 20px;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 10px;
-    }
+.site-name {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #222;
+  margin: 0;
+}
 
-    .nav a {
-      text-decoration: none;
-      color: #333;
-      font-weight: 600;
-    }
+.nav {
+  display: flex;
+  gap: 20px;
+}
 
-    .nav a:hover {
-      color: #6b4e3d;
-    }
+.nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+}
 
-    .site-name {
-      margin-top: 12px;
-      font-size: 2.2rem;
-      font-weight: bold;
-      color: #222;
-    }
+.nav a:hover {
+  color: #6b4e3d;
+}
 
     /* Section Headings */
     h2 {
@@ -192,14 +195,14 @@
     <!-- Main Content -->
     <main class="main">
       <header class="site-header">
-        <nav class="nav">
-          <a href="#about">About</a>
-          <a href="#publications">Publications</a>
-          <a href="#cv">CV</a>
-          <a href="#contact">Contact</a>
-        </nav>
-        <h1 class="site-name">Arunima Maitra</h1>
-      </header>
+  <h1 class="site-name">Arunima Maitra</h1>
+  <nav class="nav">
+    <a href="#about">About</a>
+    <a href="#publications">Publications</a>
+    <a href="#cv">CV</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
       <!-- About -->
       <section id="about">
